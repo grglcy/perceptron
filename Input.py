@@ -5,7 +5,10 @@ class Input(object):
         self.weight = p_weight
 
     def print(self):
-        print("value: %f\nweight: %f") % (self.value, self.weight)
+        print("value: %f\tweight: %f" % (self.value, self.weight))
 
-    def setweight(self, p_weight):
+    def set_weight(self, p_weight):
         self.weight = p_weight
+
+    def output(self):
+        return self.value * self.weight
