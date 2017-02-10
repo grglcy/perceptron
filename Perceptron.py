@@ -12,8 +12,8 @@ class Perceptron(object):
                 self.inputs[key].print()
 
         def input(self, p_input1, p_input2):
-            self.inputs[0] = p_input1
-            self.inputs[1] = p_input2
+            self.inputs['1'].value = float(p_input1)
+            self.inputs['2'].value = float(p_input2)
 
         def add_input(self, p_name, p_value, p_weight):
             self.inputs[p_name] = Input(p_value, p_weight)
@@ -23,8 +23,8 @@ class Perceptron(object):
 
         def _sum_inputs(self):
             total = 0
-            for key, value in self.inputs.items():
-                total += value.output()
+            for key in self.inputs:
+                total += self.inputs[key].output()
             return total
 
         def activation(self):
