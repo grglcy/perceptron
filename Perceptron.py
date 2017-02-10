@@ -27,6 +27,11 @@ class Perceptron(object):
             print("Total = %f" % input)
 
             if input > 0:
-                return True
+                return 1
             else:
-                return False
+                return -1
+
+        def guess(self, p_desired):
+            prediction = float(self.activation())
+            return p_desired - prediction
+
