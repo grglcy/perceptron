@@ -1,5 +1,6 @@
 from Input import Input
 
+
 class Perceptron(object):
 
         def __init__(self):
@@ -9,6 +10,10 @@ class Perceptron(object):
             for key in self.inputs:
                 print(key + ":")
                 self.inputs[key].print()
+
+        def input(self, p_input1, p_input2):
+            self.inputs[0] = p_input1
+            self.inputs[1] = p_input2
 
         def add_input(self, p_name, p_value, p_weight):
             self.inputs[p_name] = Input(p_value, p_weight)
@@ -24,14 +29,16 @@ class Perceptron(object):
 
         def activation(self):
             input = self._sum_inputs()
-            print("Total = %f" % input)
+            print("Sum of inputs = %f" % input)
 
             if input > 0:
                 return 1
             else:
                 return -1
 
-        def guess(self, p_desired):
+        def guess(self, p_desired, p_learning_constant):
             prediction = float(self.activation())
-            return p_desired - prediction
-
+            error = p_desired - prediction
+            for key in self.inputs:
+                self.inputs[key].weight += error * self.inputs[key].value * p_learning_constant
+            return error
