@@ -1,10 +1,13 @@
 from Perceptron import Perceptron
 from random import Random
 from Dataset import Dataset
+from Graph import *
 
 rand = Random()
 data = Dataset(open("input.txt").read().split('\n'), open("target.txt").read().split('\n'))
 learn_rate = 0.01
+graph = Graph(640, 480, "Perceptron")
+graph.drawLine(Point(-1000, -1000 + 20), Point(1000, 1000 + 20))
 
 p = Perceptron()
 i = data.inputs
@@ -20,8 +23,8 @@ for ind in range(0, 500):
         print("error: %f" % p.guess(i[key].target, learn_rate))
 
 for i in range(0, 1000):
-    x = input("Arg1")
-    y = input("Arg2")
+    x = input("Arg1: ")
+    y = input("Arg2: ")
     p.input(x, y)
     if p.activation() == 1:
         print("TRUE")
