@@ -13,3 +13,10 @@ class Graph(object):
 
     def drawLine(self, p_point1, p_point2):
         Line(p_point1, p_point2).draw(self.win).move(self.x_offset, self.y_offset)
+
+    def drawCircle(self, p_centre, p_radius, p_fill):
+        circle = Circle(p_centre, p_radius)
+        circle.setFill(p_fill)
+        circle.setOutline(p_fill)
+        circle.draw(self.win).move(self.x_offset, self.y_offset)
+
