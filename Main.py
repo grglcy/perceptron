@@ -27,7 +27,7 @@ def line_perceptron():
     def calc_y(p_x):
         return p_x + 100
 
-    for ind in range(0, 100):
+    for ind in range(0, 1000):
         x = rand.randint(-1000, 1000)
         y = rand.randint(-1000, 1000)
         print(x, y)
@@ -47,15 +47,15 @@ def line_perceptron():
             graph.drawCircle(Point(x, y), 4, "red")'''
 
     for i in range(0, 1000000):
-            x = int(input())
-            y = int(input())
-            if i == 500:
-                y = 8
-            p.input(x, y)
-            if p.activation() == 1:
-                graph.drawCircle(Point(x, y), 4, "green")
-            else:
-                graph.drawCircle(Point(x, y), 4, "red")
+        x = rand.randint(-320, 320)
+        y = rand.randint(-240, 240)
+        p.input(x, y)
+        if p.activation() == 1:
+            graph.drawCircle(Point(x, y), 4, "green")
+        else:
+            graph.drawCircle(Point(x, y), 4, "red")
+        if i % 1000 == 0:
+            graph.drawLine(Point(-1000, -1000 + 100), Point(1000, 1000 + 100))
 
     input()
 
