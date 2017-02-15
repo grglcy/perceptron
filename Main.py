@@ -19,7 +19,7 @@ def line_perceptron():
     p.add_input("bias", 1, rand.uniform(-1, 1))
 
     def answer(p_x, p_y):
-        if p_y > calc_y(p_x)
+        if p_y > calc_y(p_x):
             return 1
         else:
             return -1
