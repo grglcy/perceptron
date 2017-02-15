@@ -3,17 +3,15 @@ from random import Random
 from Dataset import Dataset
 from Graph import *
 
-graph = Graph(640, 480, "Perceptron")
-graph.drawLine(Point(-1000, -1000 + 100), Point(1000, 1000 + 100))
-
 rand = Random()
-data = Dataset(open("input.txt").read().split('\n'), open("target.txt").read().split('\n'))
 learn_rate = 0.01
 
 p = Perceptron()
-i = data.inputs
 
 def line_perceptron():
+    graph = Graph(640, 480, "Perceptron")
+    graph.drawLine(Point(-1000, -1000 + 100), Point(1000, 1000 + 100))
+
     p.add_input("1", 1, rand.uniform(-1, 1))
     p.add_input("2", 1, rand.uniform(-1, 1))
     p.add_input("bias", 1, rand.uniform(-1, 1))
@@ -60,6 +58,9 @@ def line_perceptron():
     input()
 
 def and_perceptron():
+    data = Dataset(open("input.txt").read().split('\n'), open("target.txt").read().split('\n'))
+    i = data.inputs
+
     p.add_input("1", 1, rand.uniform(-1, 1))
     p.add_input("2", 1, rand.uniform(-1, 1))
     p.add_input("bias", 1, rand.uniform(-1, 1))
