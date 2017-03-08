@@ -1,17 +1,14 @@
 from Perceptron import Perceptron
 from random import Random
 from Dataset import Dataset
-from Graph import *
-
-graph = Graph(640, 480, "Perceptron")
-graph.drawLine(Point(-1000, -1000 + 20), Point(1000, 1000 + 20))
 
 rand = Random()
-data = Dataset(open("input.txt").read().split('\n'), open("target.txt").read().split('\n'))
+#data = Dataset(open("input.txt").read().split('\n'),
+# open("target.txt").read().split('\n'))
 learn_rate = 0.01
 
 p = Perceptron()
-i = data.inputs
+#i = data.inputs
 
 
 def line_perceptron():
@@ -40,10 +37,8 @@ def line_perceptron():
         y = int(input("y: "))
         p.input(x, y)
         if p.activation() == 1:
-            graph.win.plot(x, y, "green")
             print("TRUE")
         else:
-            graph.win.plot(x, y, "red")
             print("FALSE")
 
 
